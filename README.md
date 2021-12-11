@@ -1,5 +1,5 @@
 # java-spring-api
-Exemplo de API Resful com uso do Java Spring
+Exemplo de API RESTFUL com uso do Java Spring
 
 # Getting Started
 
