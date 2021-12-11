@@ -1,9 +1,11 @@
 package com.api.crudspring.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,4 +33,7 @@ public class Student implements Serializable {
     @JoinColumn(name = "course_id_fk", updatable = false, nullable = true)
     private Course course;
 
+    @ElementCollection
+    @Column(name = "phone_number")
+    private Set<String> phoneNumbers;
 }
