@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
+// O @RestController indica que essa classe é um endpoint que vai retornar requisições REST
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/cursos")
 public class CursoController {
 
+    // A injeção da independencia do repositório esta feita no construtor com a
+    // anotação @AllArgsConstructor
     private final CourseRepository courseRepository;
 
     // @RequestMapping(method = RequestMethod.GET)
-    @GetMapping
-    public List<Course> list(){
+    @GetMapping("/list")
+    public List<Course> list() {
         return this.courseRepository.findAll();
     }
 }
