@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 // abstraindo, assim, todos os métodos basicos do CRUD
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
+    // É necessário declarar o findById aqui para que possa ser reconhecido pelo JPA
     public Course findById(long id);
 }
