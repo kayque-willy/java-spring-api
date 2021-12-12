@@ -22,8 +22,8 @@ public class CursoController {
 
     private final CourseRepository courseRepository;
 
-    // O @GetMapping indica o endereço para chamada do método
     // @RequestMapping(method = RequestMethod.GET)
+    // O @GetMapping indica o endereço para chamada do método
     @GetMapping("/list")
     public List<Course> list() {
         return this.courseRepository.findAll();
