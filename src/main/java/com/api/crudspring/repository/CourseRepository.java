@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 // abstraindo, assim, todos os métodos basicos do CRUD
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-
+    public Course findById(long id);
 }
