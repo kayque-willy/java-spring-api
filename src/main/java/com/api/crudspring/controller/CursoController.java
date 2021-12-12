@@ -13,14 +13,16 @@ import lombok.AllArgsConstructor;
 
 // O @RestController indica que essa classe é um endpoint que vai retornar requisições REST
 @RestController
+// A injeção da independencia do repositório esta feita no construtor, que é
+// gerado com a anotação @AllArgsConstructor
 @AllArgsConstructor
+// O @RequestMapping indica a URL do controller
 @RequestMapping("/api/cursos")
 public class CursoController {
 
-    // A injeção da independencia do repositório esta feita no construtor com a
-    // anotação @AllArgsConstructor
     private final CourseRepository courseRepository;
 
+    // O @GetMapping indica o endereço para chamada do método
     // @RequestMapping(method = RequestMethod.GET)
     @GetMapping("/list")
     public List<Course> list() {
