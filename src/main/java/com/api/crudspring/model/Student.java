@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +27,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Table(name = "student_table")
+@EqualsAndHashCode
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,15 +36,19 @@ public class Student implements Serializable {
     @Column(name = "name", length = 200, nullable = false)
     private String name;
 
-    // --------- Mapeamento de muito para muitos ---------
-    // O @JoinColumn é necessário para que não seja criada uma tabela
-    // O @JsonBackReference é necessario para evitar recursão do JSON em um mapeamento bidirecional
+    // --------- @ManyToOne - Mapeamento de muito para muitos ---------
+    // O @JoinColumn é necessário para definir a chave estrangeira
+    // O @JsonBackReference é necessario para evitar recursão do JSON em um
+    // mapeamento bidirecional
+    // o @EqualsAndHashCode.Exclude é necessário para remover o atributo do Equals e
+    // HashCode gerados. Isso é necessário para evitar loop recursivo
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "course_id_fk", nullable = true)
     @JsonBackReference
+    @EqualsAndHashCode.Exclude
     private Course course;
 
-    // --------- Mapeamento de entidade fraca ---------
+    // --------- @ElementCollection - Mapeamento de entidade fraca ---------
     // Mapeamento de uma entidade fraca com uso da notação @ElementCollection
     @ElementCollection
     @Column(name = "phone_number")
