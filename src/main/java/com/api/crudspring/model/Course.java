@@ -38,7 +38,7 @@ public class Course implements Serializable {
     // As anotações @Id e @GeneratedValue indicam a chave primária e a estratégia do
     // auto incremento
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // --------- Atributos ---------

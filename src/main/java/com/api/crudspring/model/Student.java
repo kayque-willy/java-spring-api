@@ -30,7 +30,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class Student implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name", length = 200, nullable = false)
