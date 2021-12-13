@@ -1,7 +1,15 @@
-# java-spring-api
-Exemplo de API RESTFUL com uso do Java Spring
+# Java Spring API 
+Exemplo de API RESTFUL com uso do Java Spring, JPA, Hibernate e PostgreSQL.
 
-# Getting Started
+This project was generated with [Java Spring Boot](https://spring.io/projects/spring-boot) version 2.6.1
+
+## Development server
+
+Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+
+## Build
+
+The build artifacts will be stored in the `target/` directory.
 
 ### Reference Documentation
 For further reference, please consider the following sections:
