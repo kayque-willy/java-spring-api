@@ -13,10 +13,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Data
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @Table(name = "discipline_table")
 public class Discipline implements Serializable {
     @Id
@@ -26,11 +32,13 @@ public class Discipline implements Serializable {
     @Column(name = "name", length = 200, nullable = false)
     private String name;
 
-    // Mapeamento de muito para muitos
+    // --------- Mapeamento de muito para muitos ---------
     // O @JoinTable é necessário para definir a tabela de junção e evitar que sejam
     // criadas mais de uma tabela
+    // O @JsonBackReference é necessario para evitar recursão do JSON em um mapeamento bidirecional
     @ManyToMany()
     @JoinTable(name = "course_discipline", joinColumns = @JoinColumn(name = "discipline_id_fk"), inverseJoinColumns = @JoinColumn(name = "course_id_fk"))
+    @JsonBackReference
     private Set<Course> courseList;
 
 }
