@@ -36,7 +36,8 @@ import lombok.Setter;
 public class Course implements Serializable {
     // --------- Identificador ---------
     // As anotações @Id e @GeneratedValue indicam a chave primária e a estratégia do
-    // auto incremento
+    // auto incremento, a estratégia padrão é IDENTITY, no qual o auto incremento
+    // fica definido de acordo com a tabela no banco de dados
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
