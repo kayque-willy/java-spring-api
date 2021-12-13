@@ -18,13 +18,14 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<!-- Spring Framework -->
+		<!-- DevTolls para o live reload -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
