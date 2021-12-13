@@ -3,6 +3,7 @@ package com.api.crudspring.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class Discipline implements Serializable {
     // mapeamento bidirecional
     // o @EqualsAndHashCode.Exclude é necessário para remover o atributo do Equals e
     // HashCode gerados. Isso é necessário para evitar loop recursivo
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "course_discipline", joinColumns = @JoinColumn(name = "discipline_id_fk"), inverseJoinColumns = @JoinColumn(name = "course_id_fk"))
     @JsonBackReference
     @EqualsAndHashCode.Exclude
