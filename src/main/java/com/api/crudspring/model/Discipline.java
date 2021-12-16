@@ -13,9 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -48,5 +50,17 @@ public class Discipline implements Serializable {
     @JsonBackReference
     @EqualsAndHashCode.Exclude
     private Set<Course> courseList;
+
+    // --------- @OneToOne - Mapeamento de um para um ---------
+    // O @JoinColumn é colocado na entidade onde a relação vai ser referenciada
+    // O @JsonBackReference é necessario para evitar recursão do JSON em um
+    // mapeamento bidirecional
+    // O @EqualsAndHashCode.Exclude é necessário para remover o atributo do Equals e
+    // HashCode gerados. Isso é necessário para evitar loop recursivo
+    @OneToOne
+    @JoinColumn(name = "teacher_id", nullable = true)
+    @JsonManagedReference
+    @EqualsAndHashCode.Exclude
+    private Teacher teacher;
 
 }

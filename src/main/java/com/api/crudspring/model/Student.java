@@ -26,8 +26,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "student_table")
 @EqualsAndHashCode
+@Table(name = "student_table")
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
