@@ -3,7 +3,7 @@ package com.api.crudspring.controller;
 import java.util.List;
 
 import com.api.crudspring.model.Course;
-import com.api.crudspring.repository.CourseRepository;
+import com.api.crudspring.service.CourseService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,32 +25,32 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/cursos")
 public class CursoController {
 
-    private final CourseRepository courseRepository;
+    private final CourseService courseService;
 
     // As anotações de mapping indicam o endereço para chamada do método
     @GetMapping("/list")
     public List<Course> listCourse() {
-        return this.courseRepository.findAll();
+        return this.courseService.findAllCourses();
     }
 
     @GetMapping("/{id}")
-    public Course findCourseById(@PathVariable (value = "id") long id) {
-        return this.courseRepository.findById(id);
+    public Course findCourseById(@PathVariable(value = "id") long id) {
+        return this.courseService.findCourseById(id);
     }
 
     @PostMapping("/save")
-    public Course saveCourse(@RequestBody Course course){
-        return courseRepository.save(course);
+    public Course saveCourse(@RequestBody Course course) {
+        return this.courseService.saveCourse(course);
     }
 
     @PutMapping("/save")
-    public Course updateCourse(@RequestBody Course course){
-         return courseRepository.save(course);
+    public Course updateCourse(@RequestBody Course course) {
+        return this.courseService.saveCourse(course);
     }
 
     @DeleteMapping("/delete")
-    public void deleteCourse(@RequestBody Course course){
-         courseRepository.delete(course);
+    public void deleteCourse(@RequestBody Course course) {
+        this.courseService.deleteCourse(course);
     }
 
 }
