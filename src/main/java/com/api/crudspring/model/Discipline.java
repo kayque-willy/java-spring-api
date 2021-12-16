@@ -57,7 +57,7 @@ public class Discipline implements Serializable {
     // mapeamento bidirecional
     // O @EqualsAndHashCode.Exclude é necessário para remover o atributo do Equals e
     // HashCode gerados. Isso é necessário para evitar loop recursivo
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "teacher_id", nullable = true)
     @JsonManagedReference
     @EqualsAndHashCode.Exclude

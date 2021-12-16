@@ -2,6 +2,7 @@ package com.api.crudspring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "teacher_table")
-public class Teacher implements Serializable{
+public class Teacher implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,14 +32,8 @@ public class Teacher implements Serializable{
     @Column(name = "name", length = 200, nullable = false)
     private String name;
 
-    @OneToOne(mappedBy = "teacher")
+    @OneToOne(mappedBy = "teacher", cascade = CascadeType.ALL)
     @JsonBackReference
     @EqualsAndHashCode.Exclude
     private Discipline discipline;
 }
-
-
-
-
-    
-
