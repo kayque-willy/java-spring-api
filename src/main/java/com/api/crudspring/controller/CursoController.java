@@ -28,6 +28,11 @@ public class CursoController {
     private final CourseService courseService;
 
     // As anotações de mapping indicam o endereço para chamada do método
+    @GetMapping("")
+    public String index() {
+        return "Exemplo de API REST - Java Spring";
+    }
+
     @GetMapping("/list")
     public List<Course> listCourse() {
         return this.courseService.findAllCourses();
