@@ -5,25 +5,18 @@ This project was generated with [Java Spring Boot](https://spring.io/projects/sp
 
 ## Development server
 
-Navigate to `http://localhost:8080/api/cursos`. The app will automatically reload if you change any of the source files.
+Navigate to `http://localhost:8080/api`. The app will automatically reload if you change any of the source files.
 
 ## API REQUESTS: 
 
-# List course
-GET (json) -> return (json)
-`http://localhost:8080/api/cursos/list`
-
-# Get course by id
-GET (id = 1) -> return (json)
-`http://localhost:8080/api/cursos/1`
-
-# Save course 
-POST and PUT (json) -> return (json)
-`http://localhost:8080/api/cursos/save`
-
-# Delete course
-DELETE (json) -> return boolean
-`http://localhost:8080/api/cursos/delete`
+ROTA             |     HTTP(Verbo)   |    Request    |    Return   |    Description      |
+---------------- | ----------------- | ------------- | ----------- | ------------------- |
+/api/            |       GET         |      -        |     HTML    | API index           |
+/api/cursos      |       GET         |      -        |     JSON    | List courses        |
+/api/cursos      |       POST        |     JSON      |     JSON    | Create courses      |
+/api/cursos/{id} |       GET         |    int(id)    |     JSON    | Get courses by id   |
+/api/cursos/{id} |       PUT         | JSON, int(id) |     JSON    | Update course by id |
+/api/cursos/{id} |       DELETE      | JSON, int(id) |    boolean  | Delete course by id |
 
 ## Build
 
