@@ -31,7 +31,8 @@ public class CursoController {
     // As anotações de mapping indicam o endereço para chamada do método
     @GetMapping("")
     public String index() {
-        return "<h1>Exemplo de API REST - Java Spring</h1>Java Spring, JPA Hibernate e PostgreSQL<span></span>";
+        return "<h1>Exemplo de API REST - Java Spring</h1>Java Spring, JPA Hibernate e PostgreSQL<span></span>"
+                + "<hr><table> <thead> <tr> <th>ROTA</th> <th>HTTP (Verbo)</th> <th>Request</th> <th>Return</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td>/api/</td> <td>GET</td> <td>-</td> <td>HTML</td> <td>API index</td> </tr> <tr> <td>/api/cursos</td> <td>GET</td> <td>-</td> <td>JSON</td> <td>List courses</td> </tr> <tr> <td>/api/cursos</td> <td>POST</td> <td>JSON</td> <td>JSON</td> <td>Create courses</td> </tr> <tr> <td>/api/cursos/{id}</td> <td>GET</td> <td>int(id)</td> <td>JSON</td> <td>Get courses by id</td> </tr> <tr> <td>/api/cursos/{id}</td> <td>PUT</td> <td>JSON, int(id)</td> <td>JSON</td> <td>Update course by id</td> </tr> <tr> <td>/api/cursos/{id}</td> <td>DELETE</td> <td>JSON, int(id)</td> <td>boolean</td> <td>Delete course by id</td> </tr> </tbody> </table>";
     }
 
     // Salvar curso
