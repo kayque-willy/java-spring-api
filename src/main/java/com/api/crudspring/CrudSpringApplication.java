@@ -8,6 +8,7 @@ public class CrudSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudSpringApplication.class, args);
+		System.out.println("API listen on port 8080: http://localhost:8080/api");
 	}
 
 }
